@@ -1,0 +1,162 @@
+
+
+.account-line{
+    border-bottom: 1px solid #ebebeb;
+}
+
+.account-info{
+    border-bottom: 1px solid #ebebeb;
+    font-weight: 600;
+    font-size: 12px;
+    padding-top: 30px;
+}
+
+.account-info-bottom{
+    font-weight: 600;
+    font-size: 12px;
+    padding-top: 30px;
+}
+
+/* :: 3.8.0 nikki Button */
+.update-btn {
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 180px;
+  height: 50px;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 400;
+  background-color: #F2CB6C;
+  border-color: #F2CB6C; 
+  border: 1px solid #F2CB6C;
+  border-radius: 2px;
+  padding: 0 30px; 
+  line-height: 48px;
+   
+  }
+  .update-btn.active, .update-btn:hover, .update-btn:focus {
+    font-weight: 400;
+    background-color: #F1C75F; 
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 400;
+    border: 1px solid #F1C75F;
+    border-color: #ebebeb; 
+
+    }
+  .update-btn.btn-sm {
+    min-width: 120px;
+    max-width: 180px;
+    height: 30px;
+    line-height: 28px; }
+
+.emp-profile{
+    padding: 3%;
+    marginghc-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+
+.profile-head p{
+    padding-top: 20px;
+}
+
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: 1px solid #ebebeb;
+    color: #495057;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #F2CB6C;
+    color: #F2CB6C;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+
+.form-group{
+    color: #495057;
+    padding-bottom: none;
+
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #d1bb95;
+    /*color: #F2CB6C;
+    color: #495057;*/
+}

@@ -1,0 +1,1248 @@
+/**
+ * store.css
+ * Stripe Payments Demo. Created by Romain Huet (@romainhuet).
+ */
+
+.modals * {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  line-height: 1.4em;
+  color: #525f7f;
+}
+
+
+.modals body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #f8fbfd;
+}
+
+/* Overall Container */
+
+.modals #main {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  transition: width 0.3s ease-in-out;
+}
+
+.modals #main.checkout:not(.success):not(.error) {
+  width: calc(100% );
+}
+
+/* Header */
+
+
+
+/* Checkout */
+
+.modals #checkout {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 30px 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear 0.5s;
+}
+
+.modals #main.checkout #checkout {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modals section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: left;
+}
+
+
+/* Payment Request */
+
+.modals #payment-request {
+  visibility: hidden;
+  opacity: 0;
+  min-height: 100px;
+  padding: 20px 0;
+  transition: visibility 0s, opacity 0.3s ease-in;
+}
+
+.modals #payment-request.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modals #payment-form {
+  margin: 0 -10px;
+  padding: 20px 30px 30px 30px;
+  border-radius: 4px;
+  border: 1px solid #e8e8fb;
+}
+
+.modals #signup-form {
+  margin: 0 -10px;
+  padding: 20px 30px 30px 30px;
+  border-radius: 4px;
+  border: 1px solid #e8e8fb;
+}
+
+/* Form */
+
+.modals fieldset {
+  margin-bottom: 20px;
+  background: #fff;
+  box-shadow: 0 1px 3px 0 rgba(50, 50, 93, 0.15),
+    0 4px 6px 0 rgba(112, 157, 199, 0.15);
+  border-radius: 4px;
+  border: none;
+  font-size: 0;
+}
+
+.modals fieldset label {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 42px;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: center;
+  color: #d1bb95;
+  font-weight: 400;
+}
+
+.modals fieldset label:not(:last-child) {
+  border-bottom: 1px solid #f0f5fa;
+}
+
+.modals fieldset label.state {
+  display: inline-flex;
+  width: 75%;
+}
+
+.modals fieldset:not(.with-state) label.state {
+  display: none;
+}
+
+.modals fieldset label.zip {
+  display: inline-flex;
+  width: 25%;
+  padding-right: 60px;
+}
+
+.modals fieldset:not(.with-state) label.zip {
+  width: 100%;
+}
+
+.modals fieldset label span {
+  min-width: 125px;
+  padding: 0 15px;
+  text-align: right;
+}
+
+.modals fieldset .redirect label span {
+  width: 100%;
+  text-align: center;
+}
+
+.modals p.instruction {
+  display: inline-table;
+  margin-top: -32px;
+  padding: 0 5px;
+  text-align: center;
+  background: #f8fbfd;
+}
+
+.modals p.tip {
+  margin: -10px auto 10px;
+  padding: 5px 0 5px 30px;
+  font-size: 14px;
+  background: url(/images/tip.svg) left center no-repeat;
+}
+
+.modals span#generate {
+  cursor: pointer;
+  color: #525f7f;
+  text-decoration: underline;
+}
+.modals span#generate:hover {
+  text-decoration: none;
+}
+
+.modals .field {
+  flex: 1;
+  padding: 0 15px;
+  background: transparent;
+  font-weight: 400;
+  color: #d1bb95;
+  outline: none;
+  cursor: text;
+}
+
+.modals .field::-webkit-input-placeholder {
+  color: #d1bb95;
+}
+.modals .field::-moz-placeholder {
+  color: #d1bb95;
+}
+.modals .field:-ms-input-placeholder {
+  color: #d1bb95;
+}
+
+.modals fieldset .select::after {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  right: 20px;
+  top: 50%;
+  margin-top: -2px;
+  background-image: url(/images/dropdown.svg);
+  pointer-events: none;
+}
+
+.modals input {
+  flex: 1;
+  border-style: none;
+  outline: none;
+  color: #d1bb95;
+}
+
+.modals select {
+  flex: 1;
+  border-style: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  color: #d1bb95;
+  cursor: pointer;
+  background: transparent;
+}
+
+.modals select:focus {
+  color: #d1bb95;
+}
+
+.modals ::-webkit-input-placeholder {
+  color: #d1bb95;
+}
+.modals ::-moz-placeholder {
+  color: #d1bb95;
+  opacity: 1;
+}
+.modals :-ms-input-placeholder {
+  color: #d1bb95;
+}
+
+.modals input:-webkit-autofill,
+.modals select:-webkit-autofill {
+  -webkit-text-fill-color: #06002b;
+  transition: background-color 100000000s;
+  -webkit-animation: 1ms void-animation-out 1s;
+}
+
+.modals .StripeElement--webkit-autofill {
+  background: transparent !important;
+}
+
+.modals #card-element {
+  margin-top: -1px;
+}
+
+.modals #ideal-bank-element {
+  padding: 0;
+}
+
+.modals button {
+  display: block;
+  background: #666ee8;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  border: 0;
+  font-weight: 700;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.modals button:focus {
+  background: #555abf;
+}
+
+.modals button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1),
+    0 3px 6px 0 rgba(0, 0, 0, 0.08);
+}
+
+.modals button:active {
+  background: #43458b;
+}
+
+.modals #country {
+  display: flex;
+  align-items: center;
+}
+
+.modals #country select {
+  margin: 0 -15px 0 -30px;
+  padding: 0 15px 0 30px;
+}
+
+.modals #country::before {
+  display: inline-flex;
+  content: '';
+  width: 21px;
+  height: 15px;
+  background: url(/images/flags.svg);
+  background-position: -1000px -1000px;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+
+.modals #country.ad::before {
+  background-position: -10px -10px;
+}
+
+.modals #country.ae::before {
+  background-position: -41px -10px;
+}
+
+.modals #country.ag::before {
+  background-position: -72px -10px;
+}
+
+.modals #country.am::before {
+  background-position: -103px -10px;
+}
+
+.modals #country.ar::before {
+  background-position: -134px -10px;
+}
+
+.modals #country.at::before {
+  background-position: -165px -10px;
+}
+
+.modals #country.au::before {
+  background-position: -196px -10px;
+}
+
+.modals #country.be::before {
+  background-position: -227px -10px;
+}
+
+.modals #country.bf::before {
+  background-position: -258px -10px;
+}
+
+.modals #country.bg::before {
+  background-position: -289px -10px;
+}
+
+.modals #country.bo::before {
+  background-position: -320px -10px;
+}
+
+.modals #country.br::before {
+  background-position: -351px -10px;
+}
+
+.modals #country.ca::before {
+  background-position: -382px -10px;
+}
+
+.modals #country.cd::before {
+  background-position: -413px -10px;
+}
+
+.modals #country.cg::before {
+  background-position: -444px -10px;
+}
+
+.modals #country.ch::before {
+  background-position: -475px -10px;
+}
+
+.modals #country.cl::before {
+  background-position: -506px -10px;
+}
+
+.modals #country.cm::before {
+  background-position: -10px -35px;
+}
+
+.modals #country.cn::before {
+  background-position: -41px -35px;
+}
+
+.modals #country.co::before {
+  background-position: -72px -35px;
+}
+
+.modals #country.cr::before {
+  background-position: -103px -35px;
+}
+
+.modals #country.cz::before {
+  background-position: -134px -35px;
+}
+
+.modals #country.de::before {
+  background-position: -165px -35px;
+}
+
+.modals #country.dj::before {
+  background-position: -196px -35px;
+}
+
+.modals #country.dk::before {
+  background-position: -227px -35px;
+}
+
+.modals #country.dz::before {
+  background-position: -258px -35px;
+}
+
+.modals #country.ec::before {
+  background-position: -289px -35px;
+}
+
+.modals #country.ee::before {
+  background-position: -320px -35px;
+}
+
+.modals #country.eg::before {
+  background-position: -351px -35px;
+}
+
+.modals #country.es::before {
+  background-position: -382px -35px;
+}
+
+.modals #country.eu::before {
+  background-position: -413px -35px;
+}
+
+.modals #country.fi::before {
+  background-position: -444px -35px;
+}
+
+.modals #country.fo::before {
+  background-position: -475px -35px;
+}
+
+.modals #country.fr::before {
+  background-position: -506px -35px;
+}
+
+.modals #country.ga::before {
+  background-position: -10px -60px;
+}
+
+.modals #country.gb::before {
+  background-position: -41px -60px;
+}
+
+.modals #country.gl::before {
+  background-position: -72px -60px;
+}
+
+.modals #country.gm::before {
+  background-position: -103px -60px;
+}
+
+.modals #country.gr::before {
+  background-position: -134px -60px;
+}
+
+.modals #country.gt::before {
+  background-position: -165px -60px;
+}
+
+.modals #country.gu::before {
+  background-position: -196px -60px;
+}
+
+.modals #country.hk::before {
+  background-position: -227px -60px;
+}
+
+.modals #country.hn::before {
+  background-position: -258px -60px;
+}
+
+.modals #country.ht::before {
+  background-position: -289px -60px;
+}
+
+.modals #country.hu::before {
+  background-position: -320px -60px;
+}
+
+.modals #country.id::before {
+  background-position: -351px -60px;
+}
+
+.modals #country.ie::before {
+  background-position: -382px -60px;
+}
+
+.modals #country.il::before {
+  background-position: -413px -60px;
+}
+
+.modals #country.im::before {
+  background-position: -444px -60px;
+}
+
+.modals #country.in::before {
+  background-position: -475px -60px;
+}
+
+.modals #country.iq::before {
+  background-position: -506px -60px;
+}
+
+.modals #country.ir::before {
+  background-position: -10px -85px;
+}
+
+.modals #country.is::before {
+  background-position: -41px -85px;
+}
+
+.modals #country.it::before {
+  background-position: -72px -85px;
+}
+
+.modals #country.je::before {
+  background-position: -103px -85px;
+}
+
+.modals #country.jm::before {
+  background-position: -134px -85px;
+}
+
+.modals #country.jo::before {
+  background-position: -165px -85px;
+}
+
+.modals #country.jp::before {
+  background-position: -196px -85px;
+}
+
+.modals #country.kg::before {
+  background-position: -227px -85px;
+}
+
+.modals #country.kn::before {
+  background-position: -258px -85px;
+}
+
+.modals #country.kp::before {
+  background-position: -289px -85px;
+}
+
+.modals #country.kr::before {
+  background-position: -320px -85px;
+}
+
+.modals #country.kw::before {
+  background-position: -351px -85px;
+}
+
+.modals #country.kz::before {
+  background-position: -382px -85px;
+}
+
+.modals #country.la::before {
+  background-position: -413px -85px;
+}
+
+.modals #country.lb::before {
+  background-position: -444px -85px;
+}
+
+.modals #country.lc::before {
+  background-position: -475px -85px;
+}
+
+.modals #country.ls::before {
+  background-position: -506px -85px;
+}
+
+.modals #country.lt::before {
+  background-position: -10px -110px;
+}
+
+.modals #country.lu::before {
+  background-position: -41px -110px;
+}
+
+.modals #country.lv::before {
+  background-position: -72px -110px;
+}
+
+.modals #country.ma::before {
+  background-position: -103px -110px;
+}
+
+.modals #country.mg::before {
+  background-position: -134px -110px;
+}
+
+.modals #country.mk::before {
+  background-position: -165px -110px;
+}
+
+.modals #country.ml::before {
+  background-position: -196px -110px;
+}
+
+.modals #country.mm::before {
+  background-position: -227px -110px;
+}
+
+.modals #country.mt::before {
+  background-position: -258px -110px;
+}
+
+.modals #country.mx::before {
+  background-position: -289px -110px;
+}
+
+.modals #country.my::before {
+  background-position: -320px -110px;
+}
+
+.modals #country.na::before {
+  background-position: -351px -110px;
+}
+
+.modals #country.ne::before {
+  background-position: -382px -110px;
+}
+
+.modals #country.ng::before {
+  background-position: -413px -110px;
+}
+
+.modals #country.ni::before {
+  background-position: -444px -110px;
+}
+
+.modals #country.nl::before {
+  background-position: -475px -110px;
+}
+
+.modals #country.no::before {
+  background-position: -506px -110px;
+}
+
+.modals #country.nz::before {
+  background-position: -10px -135px;
+}
+
+.modals #country.om::before {
+  background-position: -41px -135px;
+}
+
+.modals #country.pa::before {
+  background-position: -72px -135px;
+}
+
+.modals #country.pe::before {
+  background-position: -103px -135px;
+}
+
+.modals #country.pg::before {
+  background-position: -134px -135px;
+}
+
+.modals #country.ph::before {
+  background-position: -165px -135px;
+}
+
+.modals #country.pk::before {
+  background-position: -196px -135px;
+}
+
+.modals #country.pl::before {
+  background-position: -227px -135px;
+}
+
+.modals #country.pr::before {
+  background-position: -258px -135px;
+}
+
+.modals #country.ps::before {
+  background-position: -289px -135px;
+}
+
+.modals #country.pt::before {
+  background-position: -320px -135px;
+}
+
+.modals .modals #country.py::before {
+  background-position: -351px -135px;
+}
+
+.modals #country.qa::before {
+  background-position: -382px -135px;
+}
+
+.modals #country.ro::before {
+  background-position: -444px -135px;
+}
+
+.modals #country.ru::before {
+  background-position: -475px -135px;
+}
+
+.modals #country.rw::before {
+  background-position: -506px -135px;
+}
+
+.modals #country.sa::before {
+  background-position: -10px -160px;
+}
+
+.modals #country.se::before {
+  background-position: -41px -160px;
+}
+
+.modals #country.sg::before {
+  background-position: -72px -160px;
+}
+
+.modals #country.si::before {
+  background-position: -103px -160px;
+}
+
+.modals #country.sk::before {
+  background-position: -134px -160px;
+}
+
+.modals #country.sl::before {
+  background-position: -165px -160px;
+}
+
+.modals #country.sn::before {
+  background-position: -196px -160px;
+}
+
+.modals #country.so::before {
+  background-position: -227px -160px;
+}
+
+.modals #country.sv::before {
+  background-position: -258px -160px;
+}
+
+.modals #country.td::before {
+  background-position: -289px -160px;
+}
+
+.modals #country.th::before {
+  background-position: -320px -160px;
+}
+
+.modals #country.tj::before {
+  background-position: -351px -160px;
+}
+
+.modals #country.tl::before {
+  background-position: -382px -160px;
+}
+
+.modals country.tr::before {
+  background-position: -413px -160px;
+}
+
+.modals #country.tw::before {
+  background-position: -444px -160px;
+}
+
+.modals #country.tz::before {
+  background-position: -475px -160px;
+}
+
+.modals #country.ua::before {
+  background-position: -506px -160px;
+}
+
+.modals #country.us::before {
+  background-position: -10px -185px;
+}
+
+.modals #country.uy::before {
+  background-position: -41px -185px;
+}
+
+.modals #country.ve::before {
+  background-position: -72px -185px;
+}
+
+.modals #country.vn::before {
+  background-position: -103px -185px;
+}
+
+.modals #country.xx::before {
+  background-position: -134px -185px;
+}
+
+.modals #country.ye::before {
+  background-position: -165px -185px;
+}
+
+.modals #country.za::before {
+  background-position: -196px -185px;
+}
+
+/* Payment Methods */
+
+.modals #payment-methods {
+  margin: 0 0 20px;
+  border-bottom: 2px solid #e8e8fb;
+}
+
+.modals #payment-methods li {
+  display: none;
+}
+
+.modals #payment-methods li.visible {
+  display: inline-block;
+  margin: 0 20px 0 0;
+  list-style: none;
+}
+
+.modals #payment-methods input {
+  display: none;
+}
+
+.modals #payment-methods label {
+  display: flex;
+  flex: 1;
+  cursor: pointer;
+}
+
+.modals #payment-methods input + label {
+  position: relative;
+  padding: 5px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.modals #payment-methods label::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  bottom: -2px;
+  left: 0;
+  border-bottom: 2px solid #6772e5;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: all 0.25s ease-in-out;
+}
+
+.modals #payment-methods label:hover {
+  color: #6772e5;
+  cursor: pointer;
+}
+
+.modals #payment-methods input:checked + label {
+  color: #6772e5;
+}
+
+.modals #payment-methods label:hover::before,
+.modals #payment-methods input:checked + label::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.modals #payment-methods,
+.modals .payment-info {
+  display: none;
+}
+
+.modals .payment-info:not(.card) {
+  margin-bottom: 15px;
+}
+
+.modals .payment-info.ideal {
+  margin-bottom: 0;
+}
+
+.modals #payment-methods.visible,
+.modals .payment-info.visible {
+  display: block;
+}
+
+.modals .payment-info.card.visible,
+.modals .payment-info.sepa_debit.visible {
+  text-align: center;
+}
+
+.modals .payment-info p.notice {
+  font-size: 14px;
+  color: #d1bb95;
+  text-align: left;
+}
+
+.modals #wechat-qrcode img {
+  margin: 0 auto;
+}
+
+.modals .element-errors {
+  display: inline-flex;
+  height: 20px;
+  margin: 15px auto 0;
+  padding-left: 20px;
+  color: #e25950;
+  opacity: 0;
+  transform: translateY(10px);
+  transition-property: opacity, transform;
+  transition-duration: 0.35s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  background: url(/images/error.svg) center left no-repeat;
+  background-size: 15px 15px;
+}
+
+.modals .element-errors.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.modals #iban-errors {
+  margin-top: -20px;
+}
+
+
+
+.modals .card-number {
+  padding-left: 8px;
+  white-space: nowrap;
+  font-family: Source Code Pro, monospace;
+  color: #0d2b3e;
+  font-weight: 500;
+}
+
+.modals .card-number span {
+  display: inline-block;
+  width: 8px;
+}
+
+/* Order Confirmation */
+
+.modals #confirmation {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  visibility: hidden;
+  overflow-x: hidden;
+  opacity: 0;
+  background: #f8fbfd;
+  text-align: left;
+  transition: visibility 0s, opacity 0.5s linear 0.5s;
+}
+
+.modals #main.success #confirmation,
+.modals #main.error #confirmation {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modals #main.success #order,
+.modals #main.error #order {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modals #confirmation h1 {
+  font-size: 42px;
+  font-weight: 300;
+  color: #6863d8;
+  letter-spacing: 0.3px;
+  margin-bottom: 30px;
+}
+
+.modals #confirmation .status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 75px 0 275px;
+  max-width: 75%;
+  height: 350px;
+  margin: 100px auto;
+  /*background: #fff url(../img/blog-img/16.jpg) 75px center no-repeat;
+  background: #fff url(../images/order.svg) 75px center no-repeat;*/
+  background: #fff url(/images/16.svg) 75px center no-repeat;
+  box-shadow: 0 1px 3px 0 rgba(50, 50, 93, 0.15);
+  border-radius: 6px;
+}
+
+.modals #confirmation .status.error {
+  display: none;
+}
+
+.modals #confirmation .status p {
+  margin: 0 0 15px;
+}
+
+.modals #confirmation .status li {
+  margin-bottom: 5px;
+  list-style: none;
+}
+
+.modals #main.success:not(.processing) #confirmation .status.processing,
+.modals #main.success:not(.receiver) #confirmation .status.receiver {
+  display: none;
+}
+
+.modals #main.processing #confirmation .status.success,
+.modals #main.receiver #confirmation .status.success {
+  display: none;
+}
+
+.modals #main.error #confirmation .status.success,
+.modals #main.error #confirmation .status.processing,
+.modals #main.error #confirmation .status.receiver {
+  display: none;
+}
+
+.modals #main.error #confirmation .status.error {
+  display: flex;
+}
+
+.modals #main.error #confirmation .error-message {
+  font-family: monospace;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 1024px) {
+  .modals #main.checkout:not(.success):not(.error) {
+    width: calc(100%);
+  }
+
+}
+
+@media only screen and (max-width: 800px) {
+  .modals #main.checkout:not(.success):not(.error) {
+    width: 100%;
+  }
+  .modals #payment-request {
+    padding-top: 0;
+    min-height: 80px;
+  }
+  .modals #summary {
+    display: none;
+  }
+  .modals #confirmation .status {
+    width: auto;
+    height: auto;
+    margin: 30px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .modals .header {
+    height: 60px;
+    background-size: 40px 40px;
+  }
+  .modals .header a.shop,
+  .modals .header a.github {
+    display: none;
+  }
+  .modals #payment-request {
+    min-height: 0;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .modals #payment-form {
+    margin: 0;
+    padding: 0 15px;
+    border-width: 2px 0 0 0;
+    border-radius: 4px;
+  }
+  .modals #signup-form {
+    margin: 0;
+    padding: 0 15px;
+    border-width: 2px 0 0 0;
+    border-radius: 4px;
+  }
+  .modals .payment-info span {
+    display: none;
+  }
+  .modals fieldset {
+    margin-bottom: 15px;
+  }
+  .modals fieldset label.state,
+  .modals fieldset label.zip {
+    display: flex;
+    width: inherit;
+    padding: 10px 0;
+  }
+  .modals p.instruction {
+    margin-top: -12px;
+    font-size: 14px;
+  }
+  .modals p.tip {
+    margin-bottom: 0;
+    font-size: 13px;
+  }
+  .modals #country::before {
+    display: none;
+  }
+  .modals #checkout {
+    margin-bottom: 0;
+  }
+  .modals #confirmation .status {
+    width: auto;
+    height: auto;
+    padding: 120px 15px 15px;
+    background: #fff url(/images/order.svg) center 15px no-repeat;
+    background-size: 68px 86px;
+    box-shadow: 0 1px 3px 0 rgba(50, 50, 93, 0.15);
+    border-radius: 6px;
+  }
+  .modals #confirmation h1 {
+    text-align: center;
+  }
+}
+
+
+.modals .modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 90px; 
+  padding-bottom: 0px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  border-radius: 4px
+}
+
+/* Modal Content */
+.modals .modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  padding-top: 0px;
+  padding-bottom: 80px;
+  border: 1px solid #888;
+  width: 40%;}
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .modals .modal-content {
+        width: 50%;
+        padding-bottom: 60px; } }
+    @media only screen and (min-width: 726px) and (max-width: 991px) {
+      .modals .modal-content {
+        width: 60%; 
+        padding-bottom: 70px;} }
+    @media only screen and (max-width: 726px) {
+      .modals .modal-content {
+        width: 85%;
+        padding-bottom: 60px;  } }
+}
+
+
+
+
+
+.modals .apayment-button {
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 180px;
+  height: 50px;
+  color: #ffffff;
+  background-color: #d1bb95;
+  border: 1px solid #d1bb95;
+  border-radius: 2px;
+  padding: 0 30px;
+  font-size: 14px;
+  line-height: 48px;
+  text-transform: uppercase;
+  font-weight: 400; }
+  .modals .apayment-button .active, .modals .apayment-button:hover, .modals .apayment-button:focus {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 400;
+    background-color: #d1bb95;
+    border-color: #d1bb95; }
+  .modals .apayment-button .btn-sm {
+    min-width: 80px;
+    height: 30px;
+    line-height: 28px; }
+
+#x {
+    position: absolute;
+    background: red;
+    color: white;
+    top: -10px;
+    right: -10px;
+}
+
+
+
+
+/* The Close Button */
+.close {
+  color: #d1bb95;
+  float: right;
+  font-size: 28px;
+  width: 15px;
+  font-weight: bold;
+  background-color:white;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/*.modals .StripeElement--focus {
+    border-color: #80BDFF;
+    outline:0;
+    box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.modals #card-number.form-control,
+.modals #card-cvc.form-control,
+.modals #card-exp.form-control {
+    display:inline-block;
+}*/
+
+

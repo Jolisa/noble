@@ -1,0 +1,6 @@
+{ 
+     "netid": "jmb27",
+  "frontend": "jolisabookapp.surge.sh",
+  "backend": "https://jolisa-hw7backend.herokuapp.com"
+   
+}
